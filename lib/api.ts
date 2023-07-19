@@ -132,10 +132,10 @@ export async function getCarparkData(): Promise<CarparkResponse> {
       headers: {
         Accept: 'application/json',
       },
-      // Revalidate every 58 seconds, instead of 60 seconds
+      // Revalidate every 30 seconds, instead of 60 seconds
       // in the background/server so that when the page is
       // refreshed, the data is already updated.
-      next: { revalidate: 58 },
+      next: { revalidate: 30 },
     }
   )
 
