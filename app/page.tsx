@@ -58,6 +58,7 @@ function CarpackValueContent({
     availableLot: number
   }
 }) {
+  const sortedIds = data.carparkIds.sort((a, b) => a.localeCompare(b, 'en', { numeric: true }))
   return (
     <div>
       <h3 className="font-semibold text-lg">
@@ -72,7 +73,7 @@ function CarpackValueContent({
       </div>
 
       <div className="mt-3 flex flex-wrap gap-x-2 gap-y-1.5">
-        {data.carparkIds.map((id) => (
+        {sortedIds.map((id) => (
           <div
             key={id}
             className="px-4 py-1 rounded-md bg-blue-700 text-white font-semibold text-xs tabular-nums border border-blue-800 min-w-[80px] flex justify-center"
