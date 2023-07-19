@@ -1,6 +1,6 @@
 # Qashier Carpark Information
 
-Live: [https://qashier-carpark.vercel.app/](https://qashier-carpark.vercel.app/)
+Live: [https://qashier-carpark.vercel.app](https://qashier-carpark.vercel.app)
 
 ## Installation
 
