@@ -45,44 +45,20 @@ export function parseCarparkData(carparkResponse: CarparkResponse): Carpark {
 
   const carpark: Carpark = {
     small: {
-      highest: {
-        carparkIds: [],
-        availableLot: 0,
-      },
-      lowest: {
-        carparkIds: [],
-        availableLot: 0,
-      },
+      highest: { carparkIds: [], availableLot: 0 },
+      lowest: { carparkIds: [], availableLot: Infinity },
     },
     medium: {
-      highest: {
-        carparkIds: [],
-        availableLot: 0,
-      },
-      lowest: {
-        carparkIds: [],
-        availableLot: 0,
-      },
+      highest: { carparkIds: [], availableLot: 0 },
+      lowest: { carparkIds: [], availableLot: Infinity },
     },
     big: {
-      highest: {
-        carparkIds: [],
-        availableLot: 0,
-      },
-      lowest: {
-        carparkIds: [],
-        availableLot: 0,
-      },
+      highest: { carparkIds: [], availableLot: 0 },
+      lowest: { carparkIds: [], availableLot: Infinity },
     },
     large: {
-      highest: {
-        carparkIds: [],
-        availableLot: 0,
-      },
-      lowest: {
-        carparkIds: [],
-        availableLot: 0,
-      },
+      highest: { carparkIds: [], availableLot: 0 },
+      lowest: { carparkIds: [], availableLot: Infinity },
     },
   }
 
@@ -106,17 +82,17 @@ export function parseCarparkData(carparkResponse: CarparkResponse): Carpark {
     // Get which carpark has the highest and lowest lots
     const value = carpark[category]
 
-    if (availability > carpark[category].highest.availableLot) {
+    if (availability > value.highest.availableLot) {
       value.highest.availableLot = availability
       value.highest.carparkIds = [data.carpark_number]
-    } else if (availability === carpark[category].highest.availableLot) {
+    } else if (availability === value.highest.availableLot) {
       value.highest.carparkIds.push(data.carpark_number)
     }
 
-    if (availability < carpark[category].lowest.availableLot) {
+    if (availability < value.lowest.availableLot) {
       value.lowest.availableLot = availability
       value.lowest.carparkIds = [data.carpark_number]
-    } else if (availability === carpark[category].lowest.availableLot) {
+    } else if (availability === value.lowest.availableLot) {
       value.lowest.carparkIds.push(data.carpark_number)
     }
   }
